@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\author{Eric Mittman}
+\title{Assignment 2}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item[2.2.] It is possible for a continuous cdf to be constant over some intervals of time.
+(a) Give an example of a physical situation that would result in a cdf F(t) that is constant over some values of t.\\
+(b) Sketch such a cdf and its corresponding pdf.\\
+(c) For your example, explain why the convention for defining quantiles given in Section 2.1.2 is sensible. Are there alternative definitions that would also be suitable?\\
+\begin{enumerate}
+  \item
+  A item is known to be located along a path of known length. Suppose this length has a unit measure. Then the probability a search of length $t$ beginning at one end of the path will find the object is $F(t) = \begin{cases}t & t\in (0,1)\\ 1 & t>1\end{cases}$.  
+  \item
+  \item
+\end{enumerate}
+
+
+\item[2.6.] Consider a random variable with cdf $F(t) = t/2$, $0 < t \le 2$. Do the following:\\
+  (a) Derive expressions for the corresponding pdf and hazard functions.\\
+(b) Use the results of part (a) to verify the relationship given in (2.2).\\
+(c) Sketch (or use the computer to draw) the cdf and pdf functions.\\
+(d) Sketch (or use the computer to draw) the hazard function. Give a clear intuitive reason for the behavior of $h(t)$ as $t  \rightarrow 2$.\\
+Hint : By the time $t = 2$, all units in the population must have failed.
+\begin{enumerate}
+  \item \[f(t) = 1/2, \quad t\in (0,2)\]
+  \[h(t) = 1/t, \quad t \in (0,2)\]
+  \item 
+  \item 
+  \item 
+  
+\end{enumerate}
+\end{enumerate}
+\end{document}
