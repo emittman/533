@@ -55,17 +55,26 @@
 \title{Assignment 2}
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
+
 \maketitle
 \begin{enumerate}
-\item[2.2.] It is possible for a continuous cdf to be constant over some intervals of time.
+\item[2.2.] It is possible for a continuous cdf to be constant over some intervals of time.\\
 (a) Give an example of a physical situation that would result in a cdf F(t) that is constant over some values of t.\\
 (b) Sketch such a cdf and its corresponding pdf.\\
 (c) For your example, explain why the convention for defining quantiles given in Section 2.1.2 is sensible. Are there alternative definitions that would also be suitable?\\
 \begin{enumerate}
   \item
-  A item is known to be located along a path of known length. Suppose this length has a unit measure. Then the probability a search of length $t$ beginning at one end of the path will find the object is $F(t) = \begin{cases}t & t\in (0,1)\\ 1 & t>1\end{cases}$.  
+  A container of sand containing buried object of interest is being poured out. When half of the sand has been poured, the pouring stops to allow search for the object. The ``time to failure" is the time at which the object is emitted from the container.
+  
   \item
-  \item
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=.8\textwidth]{figure/1b-1} 
+
+\end{knitrout}
+  \item Since half the sand has been poured, defining $t_{.5}$ to be the 15 minutes, the first time at which half of the sand has been poured is sensible because that is the probability that the object is in the poured sand at 15 minutes.
+  
+  An alternative definition would be that the $p^{th}$ quantile is the largest value of $t$ such that $F(t) \le p$. This would lead to $t_{.5} = 30$ minutes.
 \end{enumerate}
 
 
@@ -77,11 +86,49 @@
 Hint : By the time $t = 2$, all units in the population must have failed.
 \begin{enumerate}
   \item \[f(t) = 1/2, \quad t\in (0,2)\]
-  \[h(t) = 1/t, \quad t \in (0,2)\]
+  \[h(t) = 1/(2-t), \quad t \in (0,2)\]
   \item 
+  \[1-\exp\left[ -\int_{0}^{t}\frac{1}{2-x}dx\right] = 1-\exp\left[\int_{2}^{2-t}\frac{1}{u}du\right] = 1-\exp\left[ \log\left(\frac{2-t}{2}\right) \right] = t/2=F(t)\]
+  \item
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=.8\textwidth]{figure/1c-1} 
+
+\end{knitrout}
   \item 
-  \item 
-  
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure}[ht]
+\includegraphics[width=.8\textwidth]{figure/1d-1} \caption[The hazard function goes to infinity at ]{The hazard function goes to infinity at $x=2$ because as the cdf reaches 1 at 2. As the remaining time to fail decreases to zero, then the conditional rate of failure must increase without bound.}\label{fig:1d}
+\end{figure}
+
+
+\end{knitrout}
+ \item
+ \[F(t)=p \iff t=2p \implies t_{.4}=.8\]
+ \item
+ Since the pdf is constant over the support of $T$,
+ \[Pr(.1<T\le.2) = P(.8<T\le.9) = 1/2 \cdot .1 = .05\]
+ \item
+ \[Pr(.1<T\le.2|T>.1) = \frac{.05}{1-F(.1)}=\frac{.05}{.95} = \frac{1}{19}\]
+  \[Pr(.8<T\le.9|T>.8) = \frac{.05}{1-F(.8)}=\frac{.05}{.6} = \frac{1}{12}\]
+  These are the same as what we would get by the approximation in (2.1):
+  \[h(.1)\times.1 = 1/19,\quad h(.8)\times.1 = 1/12\]
+ \item
+ The approximation is exact in this case because the density is constant. If the pdf was decreasing on $(t,t+\triangle t)$, then (2.1) would be biased high. It would be biased low if the pdf was increasing on the interval.
+\end{enumerate}
+
+\item[2.8]
+\begin{enumerate}
+  \item
+  \[f(t) = e^{-t},\quad h(t) = \frac{e^{-t}}{e^{-t}}=1\]
+  \item
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=.8\textwidth]{figure/3b-1} 
+
+\end{knitrout}
+  \item
+  \item
 \end{enumerate}
 \end{enumerate}
 \end{document}

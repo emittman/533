@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.8.21)  24 JAN 2016 16:06
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.8.21)  27 JAN 2016 11:36
 entering extended mode
 **hw2.tex
-(C:\Users\emittman\Documents\GitHub\533\hw2.tex
+(C:\Users\emittman\Documents\GitHub\533\hw2\hw2.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -171,7 +171,7 @@ LaTeX Info: Redefining \] on input line 2666.
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
 )
-(C:\Users\emittman\Documents\GitHub\533\hw2.aux)
+(C:\Users\emittman\Documents\GitHub\533\hw2\hw2.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
 LaTeX Font Info:    ... okay on input line 57.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
@@ -234,31 +234,71 @@ LaTeX Font Info:    ... okay on input line 57.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--64
+Underfull \hbox (badness 10000) in paragraph at lines 61--65
 
  []
 
-[1
+Package color Info: Redefining color shadecolor on input line 71.
+<figure/1b-1.pdf, id=1, 505.89pt x 216.81pt>
+File: figure/1b-1.pdf Graphic file (type pdf)
+ <use figure/1b-1.pdf>
+Package pdftex.def Info: figure/1b-1.pdf used on input line 72.
+(pdftex.def)             Requested size: 375.80544pt x 161.06213pt.
+ [1
 
-{C:/Users/emittman/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(C:\Users\emittman\Documents\GitHub\533\hw2.aux) ) 
+{C:/Users/emittman/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users
+/emittman/Documents/GitHub/533/hw2/figure/1b-1.pdf>]
+Overfull \hbox (14.4254pt too wide) detected at line 91
+\OT1/cmr/m/n/12 1 \OMS/cmsy/m/n/12   [] [] \OT1/cmr/m/n/12 = 1 \OMS/cmsy/m/n/12
+   [] [] \OT1/cmr/m/n/12 = 1 \OMS/cmsy/m/n/12   [] [] \OT1/cmr/m/n/12 = \OML/cm
+m/m/it/12 t=\OT1/cmr/m/n/12 2 = \OML/cmm/m/it/12 F\OT1/cmr/m/n/12 (\OML/cmm/m/i
+t/12 t\OT1/cmr/m/n/12 )
+ []
+
+Package color Info: Redefining color shadecolor on input line 94.
+<figure/1c-1.pdf, id=17, 505.89pt x 216.81pt>
+File: figure/1c-1.pdf Graphic file (type pdf)
+ <use figure/1c-1.pdf>
+Package pdftex.def Info: figure/1c-1.pdf used on input line 95.
+(pdftex.def)             Requested size: 375.80544pt x 161.06213pt.
+Package color Info: Redefining color shadecolor on input line 100.
+
+<figure/1d-1.pdf, id=18, 505.89pt x 216.81pt>
+File: figure/1d-1.pdf Graphic file (type pdf)
+ <use figure/1d-1.pdf>
+Package pdftex.def Info: figure/1d-1.pdf used on input line 101.
+(pdftex.def)             Requested size: 375.80544pt x 161.06213pt.
+ [2 <C:/Users/emittman/Documents/GitHub/533/hw2/figure/1c-1.pdf> <C:/Users/emit
+tman/Documents/GitHub/533/hw2/figure/1d-1.pdf>]
+Package color Info: Redefining color shadecolor on input line 126.
+
+<figure/3b-1.pdf, id=34, 505.89pt x 216.81pt>
+File: figure/3b-1.pdf Graphic file (type pdf)
+ <use figure/3b-1.pdf>
+Package pdftex.def Info: figure/3b-1.pdf used on input line 127.
+(pdftex.def)             Requested size: 375.80544pt x 161.06213pt.
+ [3 <C:/Users/emittman/Documents/GitHub/533/hw2/figure/3b-1.pdf>]
+(C:\Users\emittman\Documents\GitHub\533\hw2\hw2.aux) ) 
 Here is how much of TeX's memory you used:
- 2363 strings out of 493921
- 31294 string characters out of 3144867
- 96162 words of memory out of 3000000
- 5651 multiletter control sequences out of 15000+200000
+ 2387 strings out of 493921
+ 31695 string characters out of 3144867
+ 96170 words of memory out of 3000000
+ 5669 multiletter control sequences out of 15000+200000
  8713 words of font info for 32 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,8n,32p,287b,222s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (x86)/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files (x86)/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files (x86)/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on hw2.pdf (1 page, 54964 bytes).
+ 27i,6n,32p,344b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files (x86)/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files (x86)/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmsy8.pfb>
+Output written on hw2.pdf (3 pages, 113428 bytes).
 PDF statistics:
- 26 PDF objects out of 1000 (max. 8388607)
+ 68 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

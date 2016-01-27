@@ -6,24 +6,38 @@
 \title{Assignment 2}
 
 \begin{document}
+<<setup, echo=FALSE>>=
+opts_chunk$set(echo=FALSE, out.width = ".8\\textwidth", fig.height = 3, fig.pos="ht")
+@
 \maketitle
 \begin{enumerate}
-\item[2.2.] It is possible for a continuous cdf to be constant over some intervals of time.
+\item[2.2.] It is possible for a continuous cdf to be constant over some intervals of time.\\
 (a) Give an example of a physical situation that would result in a cdf F(t) that is constant over some values of t.\\
 (b) Sketch such a cdf and its corresponding pdf.\\
 (c) For your example, explain why the convention for defining quantiles given in Section 2.1.2 is sensible. Are there alternative definitions that would also be suitable?\\
 \begin{enumerate}
   \item
+  A container of sand containing buried object of interest is being poured out. When half of the sand has been poured, the pouring stops to allow search for the object. The ``time to failure" is the time at which the object is emitted from the container.
   
   \item
-  <<>>=
-  par(mfrow=c(1,2))
-  f <- function(t){
-    if(t >0 & t <1) t
-  }
-  
+  <<1b>>=
+  library(ggplot2)
+  library(gridExtra)
+  cdf1 <- data.frame(x = c(0,15,30),
+                    xend = c(15,30,45),
+                    y = c(0,.5,.5),
+                    yend = c(.5,.5,1))
+  pdf1 <- data.frame(x = c(0,15,30),
+                    xend = c(15,30,45),
+                    y = c(1/30,0,1/30),
+                    yend = c(1/30,0,1/30))
+  p1 <- ggplot(cdf1, aes(x=x,xend=xend,y=y,yend=yend)) + geom_segment() + xlab("minutes") + ggtitle("sand cdf")
+  p2 <- ggplot(pdf1, aes(x=x,xend=xend,y=y,yend=yend)) + geom_segment() + xlab("minutes")  +ggtitle("sand pdf")
+ grid.arrange(p1,p2,nrow=1)
   @
-  \item
+  \item Since half the sand has been poured, defining $t_{.5}$ to be the 15 minutes, the first time at which half of the sand has been poured is sensible because that is the probability that the object is in the poured sand at 15 minutes.
+  
+  An alternative definition would be that the $p^{th}$ quantile is the largest value of $t$ such that $F(t) \le p$. This would lead to $t_{.5} = 30$ minutes.
 \end{enumerate}
 
 
@@ -35,11 +49,55 @@
 Hint : By the time $t = 2$, all units in the population must have failed.
 \begin{enumerate}
   \item \[f(t) = 1/2, \quad t\in (0,2)\]
-  \[h(t) = 1/t, \quad t \in (0,2)\]
+  \[h(t) = 1/(2-t), \quad t \in (0,2)\]
   \item 
+  \[1-\exp\left[ -\int_{0}^{t}\frac{1}{2-x}dx\right] = 1-\exp\left[\int_{2}^{2-t}\frac{1}{u}du\right] = 1-\exp\left[ \log\left(\frac{2-t}{2}\right) \right] = t/2=F(t)\]
+  \item
+  <<1c>>=
+ cdf2 <- data.frame(x=0,xend=2,y=0,yend=1)
+ quant <- data.frame(x=.8,y=0,xend=.8,yend=.4)
+ lines1 <- data.frame(x=c(.8,0),y=c(0.4),xend=c(.8,.8),yend=c(.4,.4))
+ p1 <- ggplot(cdf2, aes(x=x,xend=xend,y=y,yend=yend)) + geom_segment(data = cdf2) + ggtitle("cdf for 2.6") + geom_point(data = quant) + geom_segment(data = lines1, linetype="dashed")
+ pdf2 <- data.frame(x=0,xend=2,y=1/2,yend=1/2)
+ p2 <- ggplot(pdf2, aes(x=x,xend=xend,y=y,yend=yend)) + geom_segment() + ggtitle("pdf for 2.6") + geom_segment
+ grid.arrange(p1,p2,nrow=1)
+ @
   \item 
-  \item 
-  
+  <<1d, fig.cap = "The hazard function goes to infinity at $x=2$ because as the cdf reaches 1 at 2. As the remaining time to fail decreases to zero, then the conditional rate of failure must increase without bound.">>=
+ haz2 <- function(x) 1/(2-x)
+ p3 <- ggplot(data.frame(x=c(0,2)), aes(x)) +
+   stat_function(fun = haz2,n=1000) + ylim(c(0,50))
+ p3
+ @
+ \item
+ \[F(t)=p \iff t=2p \implies t_{.4}=.8\]
+ \item
+ Since the pdf is constant over the support of $T$,
+ \[Pr(.1<T\le.2) = P(.8<T\le.9) = 1/2 \cdot .1 = .05\]
+ \item
+ \[Pr(.1<T\le.2|T>.1) = \frac{.05}{1-F(.1)}=\frac{.05}{.95} = \frac{1}{19}\]
+  \[Pr(.8<T\le.9|T>.8) = \frac{.05}{1-F(.8)}=\frac{.05}{.6} = \frac{1}{12}\]
+  These are the same as what we would get by the approximation in (2.1):
+  \[h(.1)\times.1 = 1/19,\quad h(.8)\times.1 = 1/12\]
+ \item
+ The approximation is exact in this case because the density is constant. If the pdf was decreasing on $(t,t+\triangle t)$, then (2.1) would be biased high. It would be biased low if the pdf was increasing on the interval.
+\end{enumerate}
+
+\item[2.8]
+\begin{enumerate}
+  \item
+  \[f(t) = e^{-t},\quad h(t) = \frac{e^{-t}}{e^{-t}}=1\]
+  \item
+  <<3b, fig.out = "\\textwidth">>=
+ hzd3 <- function(x) 1
+ p <- ggplot(data.frame(x=c(0,8)),aes(x))
+ p1 <- p + stat_function(fun = dexp) + ggtitle("pdf 2.8")
+ p2 <- p + stat_function(fun = pexp) + ggtitle("cdf 2.8")
+ p3 <- p + stat_function(fun = hzd3) + ggtitle("h 2.8")
+ grid.arrange(p1,p2,p3,nrow=1)
+ @
+  \item
+  \item
 \end{enumerate}
 \end{enumerate}
 \end{document}
