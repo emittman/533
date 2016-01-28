@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.8.21)  27 JAN 2016 11:36
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.8.21)  28 JAN 2016 10:00
 entering extended mode
 **hw2.tex
 (C:\Users\emittman\Documents\GitHub\533\hw2\hw2.tex
@@ -233,51 +233,47 @@ LaTeX Font Info:    ... okay on input line 57.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 61--65
-
- []
-
-Package color Info: Redefining color shadecolor on input line 71.
+Package color Info: Redefining color shadecolor on input line 68.
 <figure/1b-1.pdf, id=1, 505.89pt x 216.81pt>
 File: figure/1b-1.pdf Graphic file (type pdf)
  <use figure/1b-1.pdf>
-Package pdftex.def Info: figure/1b-1.pdf used on input line 72.
+Package pdftex.def Info: figure/1b-1.pdf used on input line 69.
 (pdftex.def)             Requested size: 375.80544pt x 161.06213pt.
- [1
 
-{C:/Users/emittman/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users
-/emittman/Documents/GitHub/533/hw2/figure/1b-1.pdf>]
-Overfull \hbox (14.4254pt too wide) detected at line 91
+Overfull \hbox (14.4254pt too wide) detected at line 83
 \OT1/cmr/m/n/12 1 \OMS/cmsy/m/n/12   [] [] \OT1/cmr/m/n/12 = 1 \OMS/cmsy/m/n/12
    [] [] \OT1/cmr/m/n/12 = 1 \OMS/cmsy/m/n/12   [] [] \OT1/cmr/m/n/12 = \OML/cm
 m/m/it/12 t=\OT1/cmr/m/n/12 2 = \OML/cmm/m/it/12 F\OT1/cmr/m/n/12 (\OML/cmm/m/i
 t/12 t\OT1/cmr/m/n/12 )
  []
 
-Package color Info: Redefining color shadecolor on input line 94.
-<figure/1c-1.pdf, id=17, 505.89pt x 216.81pt>
+Package color Info: Redefining color shadecolor on input line 86.
+<figure/1c-1.pdf, id=2, 505.89pt x 216.81pt>
 File: figure/1c-1.pdf Graphic file (type pdf)
  <use figure/1c-1.pdf>
-Package pdftex.def Info: figure/1c-1.pdf used on input line 95.
+Package pdftex.def Info: figure/1c-1.pdf used on input line 87.
 (pdftex.def)             Requested size: 375.80544pt x 161.06213pt.
-Package color Info: Redefining color shadecolor on input line 100.
+ [1
 
-<figure/1d-1.pdf, id=18, 505.89pt x 216.81pt>
+{C:/Users/emittman/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users
+/emittman/Documents/GitHub/533/hw2/figure/1b-1.pdf>]
+Package color Info: Redefining color shadecolor on input line 92.
+
+<figure/1d-1.pdf, id=20, 505.89pt x 216.81pt>
 File: figure/1d-1.pdf Graphic file (type pdf)
  <use figure/1d-1.pdf>
-Package pdftex.def Info: figure/1d-1.pdf used on input line 101.
+Package pdftex.def Info: figure/1d-1.pdf used on input line 93.
 (pdftex.def)             Requested size: 375.80544pt x 161.06213pt.
  [2 <C:/Users/emittman/Documents/GitHub/533/hw2/figure/1c-1.pdf> <C:/Users/emit
 tman/Documents/GitHub/533/hw2/figure/1d-1.pdf>]
-Package color Info: Redefining color shadecolor on input line 126.
+Package color Info: Redefining color shadecolor on input line 118.
 
-<figure/3b-1.pdf, id=34, 505.89pt x 216.81pt>
+<figure/3b-1.pdf, id=37, 505.89pt x 289.08pt>
 File: figure/3b-1.pdf Graphic file (type pdf)
  <use figure/3b-1.pdf>
-Package pdftex.def Info: figure/3b-1.pdf used on input line 127.
-(pdftex.def)             Requested size: 375.80544pt x 161.06213pt.
- [3 <C:/Users/emittman/Documents/GitHub/533/hw2/figure/3b-1.pdf>]
+Package pdftex.def Info: figure/3b-1.pdf used on input line 119.
+(pdftex.def)             Requested size: 375.80544pt x 214.74951pt.
+ [3 <C:/Users/emittman/Documents/GitHub/533/hw2/figure/3b-1.pdf>] [4]
 (C:\Users\emittman\Documents\GitHub\533\hw2\hw2.aux) ) 
 Here is how much of TeX's memory you used:
  2387 strings out of 493921
@@ -286,7 +282,7 @@ Here is how much of TeX's memory you used:
  5669 multiletter control sequences out of 15000+200000
  8713 words of font info for 32 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,6n,32p,344b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,6n,32p,386b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/M
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files (x86)/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files (x86)/MiKTe
@@ -296,9 +292,9 @@ fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
 e1/public/amsfonts/cm/cmsy8.pfb>
-Output written on hw2.pdf (3 pages, 113428 bytes).
+Output written on hw2.pdf (4 pages, 120601 bytes).
 PDF statistics:
- 68 PDF objects out of 1000 (max. 8388607)
+ 77 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

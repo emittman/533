@@ -58,10 +58,7 @@
 
 \maketitle
 \begin{enumerate}
-\item[2.2.] It is possible for a continuous cdf to be constant over some intervals of time.\\
-(a) Give an example of a physical situation that would result in a cdf F(t) that is constant over some values of t.\\
-(b) Sketch such a cdf and its corresponding pdf.\\
-(c) For your example, explain why the convention for defining quantiles given in Section 2.1.2 is sensible. Are there alternative definitions that would also be suitable?\\
+\item[2.2.] 
 \begin{enumerate}
   \item
   A container of sand containing buried object of interest is being poured out. When half of the sand has been poured, the pouring stops to allow search for the object. The ``time to failure" is the time at which the object is emitted from the container.
@@ -78,12 +75,7 @@
 \end{enumerate}
 
 
-\item[2.6.] Consider a random variable with cdf $F(t) = t/2$, $0 < t \le 2$. Do the following:\\
-  (a) Derive expressions for the corresponding pdf and hazard functions.\\
-(b) Use the results of part (a) to verify the relationship given in (2.2).\\
-(c) Sketch (or use the computer to draw) the cdf and pdf functions.\\
-(d) Sketch (or use the computer to draw) the hazard function. Give a clear intuitive reason for the behavior of $h(t)$ as $t  \rightarrow 2$.\\
-Hint : By the time $t = 2$, all units in the population must have failed.
+\item[2.6.] 
 \begin{enumerate}
   \item \[f(t) = 1/2, \quad t\in (0,2)\]
   \[h(t) = 1/(2-t), \quad t \in (0,2)\]
@@ -128,7 +120,46 @@ Hint : By the time $t = 2$, all units in the population must have failed.
 
 \end{knitrout}
   \item
+  \[F(t_p) = p \iff 1-p = \exp(-t_p) \iff t_p = -log(1-p)\]
+  So $t_{.1} = -log(.9) \approx .10536$.
   \item
+  \[F(.2)-F(.1) = e^{-.1}-e^{-.2} \approx 0.08611 \]
+  Using (2.1) we get
+  \[h(.1)\times .1 \times (1-F(.1)) = .1 \times e^{-.1} = 0.09048,\]
+  which is an overapproximation, as discussed in ex. 2.6.
+\end{enumerate}
+
+\item[2.18(d)]
+From (2.6),
+\[1-p_i = Pr(T\le t_{i-1} \lor T > t_i | T>t_{i-1}) = Pr(T>t_i|T>t_{i-1})\]
+Since $t_0=0$ and the support of $T$ is $(0,\infty)$, $1 - p_1 = Pr(T>t_1)$. It follows from the definition of conditional probability that
+\[\prod_{j=1}^{i}(1-p_j) = Pr(T>t_1,...,T>t_i) = Pr(T>t_i) = S(t_i)\]
+
+\item[2.15]
+\begin{enumerate}
+  \item Selecting the battery at random is fair.
+  \item Selecting the battery with the most running time is fair.
+  \item Selecting the battery with the least running time is fair.
+  \item Selecting the battery with the lowest measured capacity is unfair.
+  
+  The last choice is unfair, because this battery is likely to fail sooner than other batteries. This strategy would bias analysis toward larger failure times.
+  
+Among the fair choices, selecting the oldest battery would be reasonable if infant mortality is of primary interest. Selecting the newest battery would be better if wear out is a focus of the experiment. Selecting a battery at random would lead to a wider variety of censoring times and might be a good choice if both wear out and infant mortality are interesting.
+\end{enumerate}
+
+\item[3.1]
+\begin{enumerate}
+
+  \item
+  \[\hat{F}(75) = 15/23 \approx 0.65217\]
+  \item
+  \[L = \left\{1 + \frac{(23-15+1)\times 1.960116}{15}\right\}^{-1}=0.45956\]
+  \[U = \left\{1 + \frac{23-15}{(15+1)\times 2.183212}\right\}^{-1}=0.81366\]
+  \item
+  \[L = 15/23 - 1.644854 \times \sqrt(\frac{15/23 \times 8/23}{23}) = 0.48882\]
+  \[U = 15/23 + 1.644854 \times \sqrt(\frac{15/23 \times 8/23}{23}) = 0.815565\]
+  \item
+  The intervals are similar, with the primary difference being that conservative estimate is a bit wider overall, reaching a bit further to the low side. There seems to be enough data in this instance to consider the normal approximation to be adequate. However, given that the conservative estimate is close, why not use it since it guarantees the nominal coverage?
 \end{enumerate}
 \end{enumerate}
 \end{document}
