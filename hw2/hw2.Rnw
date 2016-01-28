@@ -119,6 +119,33 @@ From (2.6),
 Since $t_0=0$ and the support of $T$ is $(0,\infty)$, $1 - p_1 = Pr(T>t_1)$. It follows from the definition of conditional probability that
 \[\prod_{j=1}^{i}(1-p_j) = Pr(T>t_1,...,T>t_i) = Pr(T>t_i) = S(t_i)\]
 
+\item[3.6ab]
+\begin{enumerate}
+  \item
+  <<5a, results = 'asis'>>=
+ n <- 30
+ table5 <- data.frame(t = c(564, 1104, 1321, 1933, 1965, 2345, 2578, 3122, 4467, 5918, 6623, 7885, 7912, 8156, 12229),
+                      d = c(0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0),
+                      r = c(3, 0, 2, 3, 3, 0, 2, 3, 0, 2, 0, 0, 2, 3, 2),
+                      n = c(30, 27, 26, 24, 21, 18, 17, 15, 12, 11, 9, 8, 7, 5, 2))
+ table5$p <- ifelse(table5$d>0, table5$d/table5$n, NA)
+ table5$pc <- 1-table5$p
+ table5$S <- NA
+ table5$S[table5$d>0] <- cumprod(table5$pc[table5$d>0])
+ table5$F <- 1 - table5$S
+ library(xtable)
+ print(xtable(table5, caption = "Computation of non-parametric estimate of F(t) for problem 3.6."), include.rownames = FALSE)
+ @
+ See Table. 1.
+  \item
+<<5b>>=
+ qplot(x=t, y=F, geom="point", data = subset(table5, d>0)) + ggtitle("Nonparametric estimate of F(t), ex.3.6") + xlab("hours") + ylim(c(0,1)) + xlim(c(0,8000))
+ @
+\end{enumerate}
+
+\item[3.18]
+In the heat exchanger data, the failure times are interval censored because the inspections happen infrequently, whereas in the shock absorber data the failure times are practically exact due to continuous inspection.
+In the first case there is no information in the data regarding the distribution of failures between inspection; in the second there is.
 \item[2.15]
 \begin{enumerate}
   \item Selecting the battery at random is fair.
