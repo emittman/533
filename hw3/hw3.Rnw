@@ -1,0 +1,42 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\author{Eric Mittman}
+\title{Assignment 3}
+
+
+\begin{document}
+<<setup, echo=FALSE>>=
+  opts_chunk$set(echo=FALSE, out.width = ".8\\textwidth", fig.height = 3, fig.pos="ht")
+@
+  \maketitle
+\begin{enumerate}
+  \item[3.4]
+  <<table34, results='asis'>>=
+library(xtable)
+print(xtable(read.table("data34.txt", header=TRUE),
+             caption = "Summary of link failure data including estimated probabilities with corresponding standard errors and 95\\% confidence intervals."), include.rownames=FALSE)
+@
+  
+  \begin{enumerate}
+    \item
+    
+    \item
+    \item
+    \item
+    \item
+    \item
+  \end{enumerate}
+\item[C3.24]
+\begin{enumerate}
+  \item
+  \item
+\end{enumerate}
+\item[4.3]
+\item[4.7]
+
+
+\end{enumerate}
+\end{document}
