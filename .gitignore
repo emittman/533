@@ -5,3 +5,4 @@
 *.pdf
 *.log
 *synctex.gz
+!hw*.pdf
