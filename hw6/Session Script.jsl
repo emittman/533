@@ -1,0 +1,58 @@
+
+Life Distribution(
+	Perspective( Compare Groups ),
+	Y( :Cycles ),
+	Grouping( :Design ),
+	Censor( :Status ),
+	Censor Code( "Censored" ),
+	Freq( :Weight ),
+	Confidence Interval Method( Likelihood ),
+	Select Distribution( Distribution, Weibull ),
+	Select Scale( Weibull ),
+	Tabbed Report( 0 ),
+	SendToReport(
+		Dispatch(
+			{"Life Distribution - Compare Groups", "Statistics", "Model Comparisons"
+			},
+			"",
+			TableBox,
+			{Sort By Column( 2, 1 )}
+		),
+		Dispatch(
+			{"Life Distribution Design=", "Compare Distributions"},
+			"Life Distribution",
+			FrameBox,
+			{Grid Line Order( 4 ), Reference Line Order( 5 )}
+		),
+		Dispatch(
+			{"Life Distribution Design=", "Statistics", "Model Comparisons"},
+			"",
+			TableBox,
+			{Sort By Column( 2, 1 )}
+		),
+		Dispatch(
+			{"Life Distribution Design=New", "Compare Distributions"},
+			"Life Distribution",
+			FrameBox,
+			{Grid Line Order( 4 ), Reference Line Order( 5 )}
+		),
+		Dispatch(
+			{"Life Distribution Design=New", "Statistics", "Model Comparisons"},
+			"",
+			TableBox,
+			{Sort By Column( 2, 1 )}
+		),
+		Dispatch(
+			{"Life Distribution Design=Old", "Compare Distributions"},
+			"Life Distribution",
+			FrameBox,
+			{Grid Line Order( 4 ), Reference Line Order( 5 )}
+		),
+		Dispatch(
+			{"Life Distribution Design=Old", "Statistics", "Model Comparisons"},
+			"",
+			TableBox,
+			{Sort By Column( 2, 1 )}
+		)
+	)
+);

@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\author{Eric Mittman}
+\title{Assignment 6}
+
+
+\begin{document}
+<<setup, echo=FALSE>>=
+  opts_chunk$set(echo=FALSE, out.width = ".8\\textwidth", fig.height = 3, fig.pos="ht")
+@
+  \maketitle
+\begin{enumerate}
+\item[8.12]
+\begin{enumerate}
+  \item See figure 1.
+  \begin{figure}
+    \fbox{\includegraphics[width=\textwidth]{model_compare}}
+    \caption{By AIC (or BIC) the best distributional form for these data is Weibull.}
+  \end{figure}
+
+  \item See figure 2.
+  \begin{figure}
+    \fbox{\includegraphics[width=\textwidth]{design_compare.pdf}}
+    \caption{The estimated $\beta$ for the newer design is smaller, suggesting better reliability, although the CIs for the two designs overlap, so this finding is not conclusive.}
+    \end{figure}
+\end{enumerate}
+
+\item[8.13]
+\[L(\eta,\beta) = \prod_{i=1}^{r}\beta \phi_{sev}\left(\beta \cdot \log(t_i/\eta)\right)\left[1-\Phi_{sev}(\beta \cdot \log(t_c/\eta))\right]^{n-r}\]
+
+\item[8.21]
+\begin{enumerate}
+  \item
+  Different values of the shape parameter can lead to very different results, particular when extrapolation is required; misspecification can lead to incorrect results. Also, specification of the shape parameter will lead to more precise estimates, but there is the danger that eliminating uncertainty in this parameter will lead to overconfidence in estimates derived from the fitted model.
+  \item
+  A hypothesis test could be used ensure that the data are consistent with the engineer's claim. If no problems are found, then analysis can proceed under that assumption. Another strategy would be to do a Bayesian analysis with an informative prior constructed with guidance from the engineer (I would be more comfortable with this choice.)
+  
+\end{enumerate}
+\item[8.23]
+\[\hat{\eta}_{lower} = \left( \frac{2\sum_{i=1}^n t_i^\beta}{\chi^2_{1-\alpha;2}}\right)^{1/\beta}\]
+
+\[= \left( \frac{2 \cdot 10 \cdot 500^{2.3}}{5.991}\right)^{1/2.3}\]
+\[=844.4852\]
+This gives us a straightforward calculation: 
+\[\hat{t}_{0.01,lower} = (-\log(1-0.01))^{1/2.3} \hat{\eta}_{lower}\]
+\[\approx 114\]
+
+\item[C8.25]
+A normal interval is constrained to be symmetric about an estimate, whereas a likelihood ratio based interval respects the parameter space. If we think of likelihood as ``the probability of the data," then the likelihood ratio interval will not exclude adjacent sections of the parameter space that which make the data more probable that some value included in the interval. This is not true for the normal interval; due to the symmetry requirement, there may well be values included in the interval where the probability of the data is much lower than adjacent values on the other side of the interval.
+
+\item[8.10]
+\begin{enumerate}
+\item (b) (c) See figure 3.
+\begin{figure}
+\fbox{\includegraphics[width = \textwidth]{8_10.pdf}}
+\caption{Different MLE estimates varying $\beta$}
+\end{figure}
+\setcounter{enumii}{3}
+\item Setting $\beta$ too low will lead to overestimating proportion surviving especially when extrapolating. Setting $\beta$ too high may lead to underestimating proportion surviving.
+\end{enumerate}
+
+\item[8.14]
+\begin{enumerate}
+  \item 
+  \[L(\eta) = \prod_{i=1}^r \frac{\beta}{\eta^\beta}t_i^{\beta-1} \exp\left(\left[\frac{-t_i}{\eta}\right]^{beta}\right) \cdot \left[\exp\left(\frac{-t_c}{\eta}\right)\right]^{n-r}\]
+  \[\implies l(\eta) = r\log \beta - \beta r \log \eta + (\beta-1)\sum_{i=1}^{r} \log t_i = \sum_{i=1}^r -\left(\frac{t_i}{\eta}\right)^\beta + (n-r)\left(\frac{t_c}{\eta}\right)^\beta\]
+  \[\implies \frac{d}{d\hat{\eta}} l(\hat{\eta}) = \frac{-\beta r}{\hat{\eta}} + \sum_{i=1}^r \left(\frac{t_i}{\hat{\eta}}\right)^{\beta-1}\frac{t_i}{\hat{\eta}^2} + \beta(n-r)\left(\frac{t_c}{\hat{\eta}}\right)^{\beta-1} \frac{t_c}{\hat{\eta}^2}\]
+  \[=\frac{\beta r}{\hat{\eta}} + \sum_{i=1}^r \beta t_i^\beta \frac{1}{\hat{\eta}^{beta+1}} + \beta(n-r) t^{\beta} \frac{1}{\hat{\eta}^{\beta+1}}:=0\]
+  \[\implies \hat{\eta}^\beta r = \sum_{i=1}^r t_i^{\beta} + (n-r)t_c^\beta\]
+  \[\implies \hat{\eta} = \left(\frac{\sum_{i=1}^r t_i^{\beta} + (n-r)t_c^\beta}{r}\right)^{1/\beta}\]
+  \item It is analogous except instead of TTT, the $L_\beta$ norm is used instead of the $L_1$ norm.
+\end{enumerate}
+
+\item[8.15]
+\begin{enumerate}
+\item 
+\[\frac{\partial}{\partial \beta} l(\eta,\beta) =  \frac{r}{\beta} - r\log \eta + \sum_{i=1}^r\log t_i  - \sum_{i=1}^r \log\frac{t_i}{\eta}\left(\frac{t_i}{\eta}\right)^\beta - (n-r) \log \frac{t_c}{\eta} \left(\frac{t_c}{\eta}\right)^\beta\]
+The partial derivative for $\eta$ is given in 8.14(a)
+
+\item Setting $\frac{\partial}{\partial \beta} l(\eta,\beta) = 0 $ and factoring gives
+\[0 = \frac{1}{\eta^{\beta}} \left[ \left(\sum_{i=1}^r  t_i^\beta \log t_i + (n-r)  t_c^\beta \log t_c \right)  - \log \eta \left( \sum_{i=1}^r t_i^\beta + (n-r) t_c^\beta\right)\right] + r\log \eta - \frac{r}{\beta} - \sum_{i=1}^r \log t_i\]
+
+Substituting the solution for the $\eta$ equation for $\eta$ (second to last line 8.14(a)):
+\[0 = \frac{r}{\sum_{i=1}^r t_i^\beta + (n-r) t_c^\beta} \left[ \left(\sum_{i=1}^r  t_i^\beta \log t_i + (n-r)  t_c^\beta \log t_c \right)  - \log \eta \left( \sum_{i=1}^r t_i^\beta + (n-r) t_c^\beta\right)  \right]\]
+\[ + r\log \eta - \frac{r}{\beta} - \sum_{i=1}^r \log t_i\]
+\[\implies 0 = \frac{r\left(\sum_{i=1}^r  t_i^\beta \log t_i + (n-r)  t_c^\beta \log t_c \right)}{\sum_{i=1}^r t_i^\beta + (n-r) t_c^\beta} - r\log \eta + r\log \eta - \frac{r}{\beta} - \sum_{i=1}^r \log t_i\]
+\[\implies 0 = \frac{\left(\sum_{i=1}^r  t_i^\beta \log t_i + (n-r)  t_c^\beta \log t_c \right)}{\sum_{i=1}^r t_i^\beta + (n-r) t_c^\beta} - \frac{1}{\beta} - \frac{1}{r}\sum_{i=1}^r \log t_i\]
+\end{enumerate}
+
+\end{enumerate}
+\end{document}

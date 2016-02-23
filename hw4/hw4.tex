@@ -1,0 +1,219 @@
+\documentclass[12pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\author{Eric Mittman}
+\title{Assignment 4}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+  \maketitle
+\begin{enumerate}
+  \item[6.5]
+  \begin{enumerate}
+    \item
+% latex table generated in R 3.2.3 by xtable 1.8-0 package
+% Tue Feb 16 17:31:28 2016
+\begin{table}[ht]
+\centering
+\begin{tabular}{rr}
+  \hline
+$t$ & $\widehat{F}(t)$ \\ 
+  \hline
+0.00 & 0.00 \\ 
+  17.88 & 0.04 \\ 
+  28.92 & 0.09 \\ 
+  33.00 & 0.13 \\ 
+  41.52 & 0.17 \\ 
+  42.12 & 0.22 \\ 
+  45.60 & 0.26 \\ 
+  48.40 & 0.30 \\ 
+  51.84 & 0.35 \\ 
+  51.96 & 0.39 \\ 
+  54.12 & 0.43 \\ 
+  55.56 & 0.48 \\ 
+  67.80 & 0.52 \\ 
+  68.64 & 0.61 \\ 
+  68.88 & 0.65 \\ 
+  84.12 & 0.70 \\ 
+  93.12 & 0.74 \\ 
+  98.64 & 0.78 \\ 
+  105.12 & 0.83 \\ 
+  105.84 & 0.87 \\ 
+  127.92 & 0.91 \\ 
+  128.04 & 0.96 \\ 
+  173.40 & 1.00 \\ 
+   \hline
+\end{tabular}
+\caption{Nonparametric estimate of F(t) (ball bearing data.} 
+\end{table}
+
+    See Figure 1.
+    \begin{figure}
+    \includegraphics[height = .9\textheight]{bearing_pp.pdf}
+    \caption{Empirical cdf and probability plots for the ball bearing data.}
+    \end{figure}
+    \item
+    See Figure 1.
+    \item
+    See Figure 1.
+    \item
+    Both the Weibull and lognormal probability plot transform the data to lie approximately on a straight line, suggesting that both might be adequate models. The lognormal seems to fit the data best.
+  \end{enumerate}
+  
+  \item[6.7]
+  \begin{enumerate}
+    \item See Table 2.
+% latex table generated in R 3.2.3 by xtable 1.8-0 package
+% Tue Feb 16 17:31:28 2016
+\begin{table}[ht]
+\centering
+\begin{tabular}{rr}
+  \hline
+$t$ & $\widehat{F}(t)$ \\ 
+  \hline
+0.00 & 0.00 \\ 
+  17.88 & 0.04 \\ 
+  28.92 & 0.09 \\ 
+  33.00 & 0.13 \\ 
+  41.52 & 0.17 \\ 
+  42.12 & 0.22 \\ 
+  45.60 & 0.26 \\ 
+  48.40 & 0.30 \\ 
+  51.84 & 0.35 \\ 
+  51.96 & 0.39 \\ 
+  54.12 & 0.43 \\ 
+  55.56 & 0.48 \\ 
+  67.80 & 0.52 \\ 
+  68.64 & 0.61 \\ 
+  68.88 & 0.65 \\ 
+  84.12 & 0.70 \\ 
+  93.12 & 0.74 \\ 
+  98.64 & 0.78 \\ 
+  105.12 & 0.83 \\ 
+  105.84 & 0.87 \\ 
+  127.92 & 0.91 \\ 
+  128.04 & 0.96 \\ 
+  173.40 & 1.00 \\ 
+   \hline
+\end{tabular}
+\caption{Nonparametric estimate of F(t) (alloy data.)} 
+\end{table}
+
+    \item See Figure 2.
+    \begin{figure}
+      \includegraphics[height=.4\textheight]{alloy_ecdf.pdf}
+      \caption{Empirical distribution of alloy failure data.}
+    \end{figure}
+    \item See Figure 3.
+    \begin{figure}
+      \includegraphics[height=.5\textheight]{weibull_plot.pdf}
+      \caption{The fitted slope $\widehat{\sigma}=1.759$, $\widehat{\beta} = \frac{1}{\widehat{sigma}} = .569$.}
+      \end{figure}
+    \item
+    The fitted Weibull cdf given by the line in Figure 3 follows the data quite closely and thus seems adequate. 
+    \item
+    $t_{.1}$ is not within the range of observed data, so is extrapolation. However, it is not an extreme case of extrapolation and the Weibull distribution is conservative by nature, so I would be comfortable predicting it with these data.
+  \end{enumerate}
+  \item[6.9]
+  It appears that modeling photo-detector failure times as Weibull, exponential, lognormal and normal are all reasonable choices as they linearize the data. Of these the exponential appears the poorest fit. However, the sample size is small enough that we might expect the data to be fit many location-scale models reasonably well. The normal distribution fits well to the data that we have collected, but it is not an ideal choice since it has support on the negative numbers.
+  
+  \begin{figure}
+    \includegraphics[height=.9\textheight]{detector_pp.pdf}
+    \caption{Probability plots for detector failure times.}
+  \end{figure}
+  
+  \item[6.10]
+  \begin{enumerate}
+    \item Because the mean is a parameter of interest and it is also the median ($t_{.5}$)
+    \item
+    \[\log(-\log(1-p)) = 0 \iff 1-p = e^{-1} \iff p = 1 - e^{-1} \approx 0.6321\]
+  \end{enumerate}
+  \item[6.11]
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{alloy_df} \hlkwb{<-} \hlkwd{readRDS}\hlstd{(}\hlstr{"alloy_df.rds"}\hlstd{)}
+
+\hlstd{dfw} \hlkwb{<-} \hlkwd{data.frame}\hlstd{(}\hlkwc{x} \hlstd{=} \hlkwd{log}\hlstd{(alloy_df[}\hlnum{2}\hlopt{:}\hlnum{56}\hlstd{,}\hlnum{1}\hlstd{]),} \hlkwc{y} \hlstd{=} \hlkwd{qnorm}\hlstd{(alloy_df[}\hlnum{2}\hlopt{:}\hlnum{56}\hlstd{,}\hlnum{3}\hlstd{]))}
+\hlstd{fit2} \hlkwb{<-} \hlkwd{lm}\hlstd{(x} \hlopt{~} \hlstd{y, dfw)}
+
+\hlkwd{pnorm}\hlstd{( (} \hlkwd{log}\hlstd{(}\hlnum{200}\hlstd{)} \hlopt{-} \hlstd{fit2}\hlopt{$}\hlstd{coef[}\hlnum{1}\hlstd{])}\hlopt{/}\hlstd{fit2}\hlopt{$}\hlstd{coef[}\hlnum{2}\hlstd{])}
+\end{alltt}
+\begin{verbatim}
+## (Intercept) 
+##   0.7238951
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+  \item[6.12]
+All of the graphical methods are going to give similar results because they are showing the same data. The empirical estimate that they give is about $0.75$, which is a little higher than in 6.11. That reflects the discrepancy between the lognormal model fit and the data.
+  \item[C6.16]
+
+  \begin{enumerate}
+  \item A logistic distribution. See Figure 5.
+  \begin{figure}
+  \includegraphics[width = .9\textwidth]{bulbs.pdf}
+  \caption{Logistic probability plot and histogram of bulb failure times with estimated logistic distribution function. Median time to failure is 1037.}
+  \end{figure}
+  \item
+  A graphical estimate of the median is $1037$. This is equivalent to the sample median of failure times.
+  \item
+  A numerical estimate of the mean time to failure is $1067$.
+  \item
+  The mean and median will be noticably different if the distribution is assymetric.
+  \item
+  It appears it would be, since it is a good estimate of the typical lifespan of a bulb, and this seems like a useful number.
+  \end{enumerate}
+\end{enumerate}
+\end{document}

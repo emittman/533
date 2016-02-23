@@ -1,0 +1,193 @@
+\documentclass[12pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\author{Eric Mittman}
+\title{Assignment 5}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+  \maketitle
+\begin{enumerate}
+\item[7.4]
+\begin{enumerate}
+  \item
+  \[\hat{\theta} = \frac{TTT}{r} = \frac{9430589}{4}=2357647\]
+  \item
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{TTT} \hlkwb{<-} \hlstd{(}\hlnum{345}\hlopt{+}\hlnum{556}\hlopt{+}\hlnum{712}\hlopt{+}\hlnum{976} \hlopt{+} \hlnum{9428}\hlopt{*}\hlnum{1000}\hlstd{)}
+\hlstd{mle} \hlkwb{<-} \hlstd{TTT}\hlopt{/}\hlnum{4}
+\hlstd{ll} \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{theta}\hlstd{)} \hlopt{-}\hlnum{4} \hlopt{*} \hlkwd{log}\hlstd{(theta)} \hlopt{-} \hlnum{1}\hlopt{/}\hlstd{theta} \hlopt{*} \hlstd{TTT}
+\hlstd{rll} \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{theta}\hlstd{)} \hlkwd{ll}\hlstd{(theta)} \hlopt{-} \hlkwd{ll}\hlstd{(mle)}
+\hlstd{to_solve} \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{theta}\hlstd{)} \hlkwd{qchisq}\hlstd{(}\hlnum{.95}\hlstd{,}\hlnum{1}\hlstd{)} \hlopt{+} \hlnum{2} \hlopt{*} \hlkwd{rll}\hlstd{(theta)}
+\hlstd{ci} \hlkwb{<-} \hlkwa{NULL}
+\hlstd{ci[}\hlnum{1}\hlstd{]} \hlkwb{<-} \hlkwd{uniroot}\hlstd{(to_solve,} \hlkwd{c}\hlstd{(mle} \hlopt{-} \hlnum{2e6}\hlstd{,mle))[[}\hlnum{1}\hlstd{]]}
+\hlstd{ci[}\hlnum{2}\hlstd{]} \hlkwb{<-} \hlkwd{uniroot}\hlstd{(to_solve,} \hlkwd{c}\hlstd{(mle,mle} \hlopt{+} \hlnum{1e7}\hlstd{))[[}\hlnum{1}\hlstd{]]}
+\hlstd{ci}
+\end{alltt}
+\begin{verbatim}
+## [1] 1014883 7594289
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+  \item
+  In large sample sizes, a confidence interval so constructed will cover the true value of $\theta$ 95\% of the time.
+  \item
+This can be interpreted as the failure rate. If there are $N$ active components, then $N\cdot \lambda$ would be the number of expected failures in the next unit of time.
+  \item
+  An approximate 95\% confidence interval is $(132,985)$.
+  \item
+  We cannot say with 95\% confidence that the new component is better. The estimated improvement is 426 FITs, with a 95\% confidence interval allowing values between an 84\% reduction in hazard to a 16\% increase in hazard.
+  
+  \item
+  We can observe that there is some discrepancy between the fitted exponential model and what would be the fit for a Weibull model. This discrepancy, which can be observed by the error bar failing to capture the first failure time, suggests there may be a problem with the current model. Since the exponential model is a special case of the Weibull, this could be addressed with a formal likelihood ratio test.
+  
+  \begin{figure}
+    \includegraphics[width=.9\textwidth]{ex7_4}
+    \caption{Fitted exponential distribution on Weibull paper for exercise 7.4 (Component A)}
+  \end{figure}
+\end{enumerate}
+
+\item[7.9]
+\begin{enumerate}
+  \item $TTT = 20\times 50 = 1000$. Since $\widehat{\theta}_{mle} = \frac{TTT}{r} \rightarrow \infty$ as $r \rightarrow 0$, the MLE is $\infty$.
+  \item
+  \[\frac{1000}{-\log (.05)} \approx 333.81\]
+  \item
+  Yes. This result is strongly dependent on our assumption that the failure times follow an exponential distribution. Units were only observed for 20 hours, and our assumption of constant hazard leads to this large lower bound on $\theta$.
+  \item
+  \begin{itemize}
+    \item lower confidence bound for $t_{.1} = 35.17$
+    \item upper confidence bound for $h(50) = .0030$
+    \item
+    upper confidence bound for $F(50) = .139$.
+  \end{itemize}
+\end{enumerate}
+\item[8.6]
+Given $SE_{\hat{g}}$, apply the delta method:
+\[SE_{\log(\hat{g})}^2 \approx \left(\frac{d}{d g}\log(g)\right)^2\bigg|_{g = \hat{g}}SE_{\hat{g}}\]
+\[\implies SE_{\log(\hat{g})} \approx \frac{1}{\hat{g}}SE_{\hat{g}}\]
+Using this approximation and transforming a standard normal confidence interval,
+\[(\log(\hat{g}) - z_{1-\alpha/2}\cdot \frac{1}{\hat{g}}SE_{\hat{g}}, \quad \log(\hat{g}) + z_{1-\alpha/2}\cdot \frac{1}{\hat{g}}SE_{\hat{g}})\]
+which yields
+\[(\hat{g}/w, \hat{g}\times w) \mbox{, where } w=\exp(z_{1-\alpha/2}\cdot \frac{1}{\hat{g}}SE_{\hat{g}})\]
+
+\item[7.1]
+\begin{enumerate}
+  \item
+  Setting the first derivative of the log likelihood to zero and solving,
+\[l(\theta) = -n \log(\theta) - \frac{-1}{\theta} \sum_{i=1}^r y_i\]
+\[\implies l'(\theta) = \frac{-n}{\theta} +\frac{1}{\theta^2}\sum_{i=1}^r y_i\]
+\[l'(\widehat{\theta}) = 0 \iff \widehat{\theta} = \bar{y}\]
+  \item
+  \[R(\theta) = \frac{L(\theta)}{L(\widehat{\theta})}\]
+  \[=\frac{\theta^{-n}\exp\left\{-n\bar{y}/\theta\right\}}{
+  \bar{y}^{-n}\exp\left\{-n\bar{y}/\bar{y}\right\}}\]
+  \[=\exp(n)\left(\frac{\bar{y}}{\theta}\right)^n \exp\left(-\frac{n\bar{y}}{\theta}\right)\]
+  \item
+  We can solve for $\theta$ where $R(\theta|y) = \chi_{1,1-\alpha}^2$,which should produce two solutions, yielding lower and upper endpoints to a $(1-\alpha)$ approximate confidence interval. (As was done in 7.4(b).)
+  
+\item
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{n} \hlkwb{<-} \hlnum{4}
+\hlstd{ybar} \hlkwb{<-} \hlnum{.87}
+\hlstd{R} \hlkwb{<-} \hlkwa{function}\hlstd{(}\hlkwc{theta}\hlstd{) \{}
+  \hlkwd{exp}\hlstd{(n)} \hlopt{*} \hlstd{(ybar}\hlopt{/}\hlstd{theta)}\hlopt{^}\hlstd{n} \hlopt{*} \hlkwd{exp}\hlstd{(}\hlopt{-}\hlstd{n} \hlopt{*} \hlstd{ybar} \hlopt{/} \hlstd{theta)}
+\hlstd{\}}
+\hlstd{to_solve2} \hlkwb{<-} \hlkwd{Vectorize}\hlstd{(}\hlkwa{function}\hlstd{(}\hlkwc{theta}\hlstd{) \{}\hlnum{2} \hlopt{*} \hlkwd{log}\hlstd{(}\hlkwd{R}\hlstd{(theta))} \hlopt{+} \hlkwd{qchisq}\hlstd{(}\hlnum{.9}\hlstd{,}\hlnum{1}\hlstd{)\})}
+
+\hlstd{low} \hlkwb{<-} \hlkwd{uniroot}\hlstd{(to_solve2,} \hlkwd{c}\hlstd{(}\hlnum{0.2}\hlstd{,ybar))[[}\hlnum{1}\hlstd{]]}
+\hlstd{high} \hlkwb{<-} \hlkwd{uniroot}\hlstd{(to_solve2,} \hlkwd{c}\hlstd{(ybar,}\hlnum{10}\hlstd{))[[}\hlnum{1}\hlstd{]]}
+
+\hlkwd{cat}\hlstd{(}\hlkwd{c}\hlstd{(low,high))}
+\end{alltt}
+\begin{verbatim}
+## 0.4220005 2.254898
+\end{verbatim}
+\begin{alltt}
+\hlstd{grid} \hlkwb{<-} \hlnum{200}\hlopt{:}\hlnum{5000} \hlopt{*} \hlnum{.001}
+\hlkwd{plot}\hlstd{(grid,} \hlkwd{R}\hlstd{(grid),} \hlkwc{main}\hlstd{=}\hlstr{"Relative log likelihood."}\hlstd{)}
+\hlkwd{abline}\hlstd{(}\hlkwc{v}\hlstd{=}\hlkwd{c}\hlstd{(low,high),}\hlkwc{h}\hlstd{=}\hlkwd{exp}\hlstd{(}\hlopt{-}\hlkwd{qchisq}\hlstd{(}\hlnum{.9}\hlstd{,}\hlnum{1}\hlstd{)}\hlopt{/}\hlnum{2}\hlstd{),}\hlkwc{lty}\hlstd{=}\hlnum{2}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=.8\textwidth]{figure/71d-1} 
+
+\end{knitrout}
+\end{enumerate}
+\item[7.2]
+\begin{enumerate}
+\item
+\[L(\theta) = \theta^{-r} \exp\left(- \frac{\sum_{i=1}{r} t_i)}{\theta}\right) \times \exp\left( - \frac{(n-r)t_c}{\theta}\right)\]
+
+\item
+\[\frac{d}{d\theta}\log(L(\theta)) = \frac{-r}{\theta} + \frac{\sum_{i=1}{r}t_i + (n-r)t_c}{\theta^2}\]
+Setting $\frac{d}{d\hat{\theta}}\log(L(\hat{\theta})) =0$,
+\[-r\hat{\theta} + \sum_{i=1}{r}t_i + (n-r)t_c = 0\]
+\[\implies \hat{\theta} = \frac{\sum_{i=1}{r}t_i + (n-r)t_c}{r} = \frac{TTT}{r}\]
+
+\item
+Since $t_c>0$, as $r \rightarrow 0$, $\hat{\theta} \rightarrow \infty$.
+
+\item
+\[R(\theta) = \left(\frac{TTT/r}{\theta}\right)^r \exp(r) \exp\left(\frac{-TTT}{\theta}\right)\]
+
+\end{enumerate}
+\item[7.5]
+This figure is a consistent,  unbiased estimate of the mean time to failure {\em if we assume} that the distribution of time to failure for the population of hard disks follows an exponential distribution. This assumption is false, as these drives wear out over time. This estimate will then be biased high because the hazard function is increasing and is not constant with time.
+
+\end{enumerate}
+\end{document}
