@@ -305,12 +305,10 @@ real<lower=0> C2;
 transformed parameters {
 vector<lower=0>[M] eta;
 vector<lower=0>[M] beta;
-real<lower=0> a;
-beta <- exp(-1.0 * log_sigma)
+beta <- exp(-1.0 * log_sigma);
 for(i in 1:M){
-  eta[i] <- exp(log_tp)/(Q^(1/beta[i]));
+  eta[i] <- exp(log_tp[i])/(Q^(1/beta[i]));
 }
-a <- lambda * b;
 }
 model {
 for(i in 1:N_obs){
