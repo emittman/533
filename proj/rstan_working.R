@@ -74,7 +74,7 @@ source("proj/models.R")
 
 compiled_model <- stan_model(model_code = hier_mu_and_beta)
 s <- sampling(compiled_model, data = data, chains = 4, iter=2000)
-
+saveRDS(s, file = "hier2000.rds")
 # select_pairs = function(fit, indices, p = c(1,2)){
 #   mus <- sapply(indices, function(x) paste(c("mu[",x,"]"),collapse=""))
 #   beta <- sapply(indices, function(x) paste(c("beta[",x,"]"),collapse=""))
