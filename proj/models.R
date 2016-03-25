@@ -194,7 +194,7 @@ beta ~ gamma(a, b);
 C ~ cauchy(0, 10);
 lambda ~ exponential(1);
 b ~ exponential(1);
-<<<<<<< HEAD
+
 } "
 
 common_beta_hier_mu <- "
@@ -334,9 +334,8 @@ increment_log_prob(-1.0 * weibull_ccdf_log(    t_cens[i], beta[x_tr_cens[i]], et
 log_tp ~ normal(m1, C1);
 log_sigma ~ normal(m2, C2);
 
-//priors (improper prior on m)
+//priors (improper prior on m1 and m2)
 C1 ~ cauchy(0, 10);
 C2 ~ cauchy(0,10);
-=======
->>>>>>> 148315443f51f63dfe99b6589d9828886116784d
+
 } "
