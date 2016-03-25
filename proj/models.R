@@ -296,7 +296,7 @@ transformed data{
 }
 parameters {
 vector[M] log_tp;
-vector<lower=0>[M] log_sigma;
+vector[M] log_sigma;
 real m1;
 real<lower=0> C1;
 real m2;
