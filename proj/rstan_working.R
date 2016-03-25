@@ -75,9 +75,10 @@ source("proj/models.R")
 compiled_model <- stan_model(model_code = hier_mu_and_beta)
 s <- sampling(compiled_model, data = data, chains = 4, iter=500)
 
-select_pairs = function(fit, indices){
-  mus <- sapply(indices, function(x) paste(c("mu[",x,"]"),collapse=""))
-  pairs(fit, pars = c("beta", mus, "m", "C"))
-  plot(fit, pars = c(mus))
-}
-select_pairs(s, c(1,2,11))
+# select_pairs = function(fit, indices){
+#   mus <- sapply(indices, function(x) paste(c("mu[",x,"]"),collapse=""))
+#   pairs(fit, pars = c("beta", mus, "m", "C"))
+#   plot(fit, pars = c(mus))
+# }
+# select_pairs(s, c(1,2,11))
+
