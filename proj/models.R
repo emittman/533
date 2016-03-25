@@ -194,6 +194,7 @@ beta ~ gamma(a, b);
 C ~ cauchy(0, 10);
 lambda ~ exponential(1);
 b ~ exponential(1);
+<<<<<<< HEAD
 } "
 
 common_beta_hier_mu <- "
@@ -336,4 +337,6 @@ log_sigma ~ normal(m2, C2);
 //priors (improper prior on m)
 C1 ~ cauchy(0, 10);
 C2 ~ cauchy(0,10);
+=======
+>>>>>>> 148315443f51f63dfe99b6589d9828886116784d
 } "
