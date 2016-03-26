@@ -68,11 +68,11 @@ data <- list(N_obs = length(failed),
               x_cens = x_cens,
               x_tr_obs = x_tr_failed,
               x_tr_cens = x_tr_cens,
-              p = .02)
+              p = .01)
 
 source("proj/models.R")
 
-compiled_model <- stan_model(model_code = hier_mu_and_beta2)
+compiled_model <- stan_model(model_code = hier_mu_and_beta3)
 s <- sampling(compiled_model, data = data, chains = 4, iter=2000)
 saveRDS(s, file = "trans_hier2000.rds")
 
