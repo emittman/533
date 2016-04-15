@@ -1,0 +1,147 @@
+\documentclass{scrartcl}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage{amsmath}
+\author{Eric Mittman}
+\title{Assignment 12, Stat 533}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item[9.1]
+\begin{align}
+p(\theta|y) =& \frac{p(y|\theta)p(\theta)}{\int p(y|\theta) p(\theta) d\theta}\\
+\implies p(\theta|y) =& \frac{p(y|\theta)}{\int p(y|\theta) d\theta} \frac{\int p(y|\theta)d\theta}{\int p(y|\theta) p(\theta)d\theta}\\
+\implies R_1(\theta) =& R_2(\theta)\frac{\int p(y|\theta)d\theta}{\int p(y|\theta) p(\theta)d\theta}\\
+\implies \frac{R_1(\theta)}{R_2(\theta)} =& \frac{\int p(y|\theta)d\theta}{\int p(y|\theta) p(\theta)d\theta}
+\end{align}
+This is in terms of an ``ordinary" relative likelihood $R_2$ and a ``modified" relative likelihood that incorporates a prior. We can note that the ratio will tend to 1 as the information from the data ``overwhelms" the prior.
+
+\item[9.3]
+Since the likelihood will become increasingly concentrated as we collect more data, the posterior will also, which is not what we would expect if the posterior were reflective of a static population distribution.
+
+\item[C9.15]
+
+I used rstan in R to fit the model, running 4 chains for 5000 iterations each and discarding the first 2500. rstan's algorithm is purported to converge quickly and produce samples with very low autocorrelation.
+
+The results from the LUNIF, LUNIF model:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{print}\hlstd{(s)}
+\end{alltt}
+\begin{verbatim}
+## Inference for Stan model: 43d296dd25e66fc9cd44089f1b6cea2e.
+## 4 chains, each with iter=5000; warmup=2500; thin=1; 
+## post-warmup draws per chain=2500, total post-warmup draws=10000.
+## 
+##              mean se_mean        sd    2.5%      25%      50%      75%
+## log_tp       8.66    0.02      0.66    7.74     8.18     8.52     9.02
+## log_beta     0.55    0.01      0.33   -0.10     0.33     0.57     0.79
+## eta      50506.54 2723.08 106143.37 4750.95 10050.25 18057.49 41772.04
+## beta         1.84    0.02      0.61    0.90     1.39     1.76     2.20
+## lp__       -77.90    0.03      1.14  -80.93   -78.36   -77.54   -77.07
+##              97.5% n_eff Rhat
+## log_tp       10.30  1441 1.01
+## log_beta      1.18  1432 1.01
+## eta      342226.42  1519 1.01
+## beta          3.25  1429 1.01
+## lp__        -76.78  1707 1.00
+## 
+## Samples were drawn using NUTS(diag_e) at Thu Apr 14 23:56:52 2016.
+## For each parameter, n_eff is a crude measure of effective sample size,
+## and Rhat is the potential scale reduction factor on split chains (at 
+## convergence, Rhat=1).
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+The results from the LUNIF, LN model:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{print}\hlstd{(s2)}
+\end{alltt}
+\begin{verbatim}
+## Inference for Stan model: 8f6061bacff33d4af26a9961a7742f0b.
+## 4 chains, each with iter=5000; warmup=2500; thin=1; 
+## post-warmup draws per chain=2500, total post-warmup draws=10000.
+## 
+##              mean se_mean      sd    2.5%     25%      50%      75%
+## log_tp       8.30    0.01    0.28    7.84    8.11     8.27     8.46
+## log_beta     0.73    0.00    0.12    0.49    0.65     0.73     0.81
+## eta      13001.27  120.30 5771.47 6356.17 9249.06 11652.33 15092.14
+## beta         2.09    0.00    0.26    1.63    1.91     2.07     2.25
+## lp__       -77.62    0.02    1.06  -80.43  -78.03   -77.29   -76.86
+##             97.5% n_eff Rhat
+## log_tp       8.93  2289    1
+## log_beta     0.97  2781    1
+## eta      27994.09  2302    1
+## beta         2.64  2768    1
+## lp__       -76.60  2746    1
+## 
+## Samples were drawn using NUTS(diag_e) at Thu Apr 14 23:57:35 2016.
+## For each parameter, n_eff is a crude measure of effective sample size,
+## and Rhat is the potential scale reduction factor on split chains (at 
+## convergence, Rhat=1).
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+\begin{figure}[h!]
+\includegraphics[height=.4\textheight]{lunif}
+\includegraphics[height=.4\textheight]{lnorm}
+\caption{80\% credible bands for distribution of failure times and point estimate for the same. The top figure is the diffuse prior and the bottom figure is somewhat informative for $\beta$. The informative prior controls how fast the uncertainty increases when extrapolating.}
+\end{figure}
+
+\item[9.15]
+\end{enumerate}
+
+\end{document}

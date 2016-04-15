@@ -1,0 +1,70 @@
+\documentclass{scrartcl}
+\usepackage{amsmath}
+\author{Eric Mittman}
+\title{Assignment 12, Stat 533}
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item[9.1]
+\begin{align}
+p(\theta|y) =& \frac{p(y|\theta)p(\theta)}{\int p(y|\theta) p(\theta) d\theta}\\
+\implies p(\theta|y) =& \frac{p(y|\theta)}{\int p(y|\theta) d\theta} \frac{\int p(y|\theta)d\theta}{\int p(y|\theta) p(\theta)d\theta}\\
+\implies R_1(\theta) =& R_2(\theta)\frac{\int p(y|\theta)d\theta}{\int p(y|\theta) p(\theta)d\theta}\\
+\implies \frac{R_1(\theta)}{R_2(\theta)} =& \frac{\int p(y|\theta)d\theta}{\int p(y|\theta) p(\theta)d\theta}
+\end{align}
+This is in terms of an ``ordinary" relative likelihood $R_2$ and a ``modified" relative likelihood that incorporates a prior. We can note that the ratio will tend to 1 as the information from the data ``overwhelms" the prior.
+
+\item[9.3]
+Since the likelihood will become increasingly concentrated as we collect more data, the posterior will also, which is not what we would expect if the posterior were reflective of a static population distribution.
+
+\item[C9.15]
+<<run_mcmc, include=FALSE, cache=TRUE>>=
+library(rstan)
+source("model.R")
+bearingCage <- read.table("../../../../../../RSplidaAlpha/RSplida_text_data/BearingCage.txt",
+                          header=T)
+data <- with(bearingCage, list(T_obs = sum(Status=="Failed"),
+                               T_cens = sum(Status=="Censored"),
+                               y_obs = Hours[Status=="Failed"],
+                               y_cens = Hours[Status=="Censored"],
+                               wts_obs = Weight[Status=="Failed"],
+                               wts_cens = Weight[Status=="Censored"],
+                               p = .1))
+
+m <- stan_model(model_code = model)
+s <- sampling(m, data=data, iter=5000)
+m2 <- stan_model(model_code = model2)
+
+data2 <- with(bearingCage, list(T_obs = sum(Status=="Failed"),
+                               T_cens = sum(Status=="Censored"),
+                               y_obs = Hours[Status=="Failed"],
+                               y_cens = Hours[Status=="Censored"],
+                               wts_obs = Weight[Status=="Failed"],
+                               wts_cens = Weight[Status=="Censored"],
+                               p = .1,
+                               mu = (log(1.5)+log(3))/2,
+                               sigma2 = (log(3)-log(1.5))/2/qnorm(.995)))
+s2 <- sampling(m2, data=data2, iter=5000)
+@
+I used rstan in R to fit the model, running 4 chains for 5000 iterations each and discarding the first 2500. rstan's algorithm is purported to converge quickly and produce samples with very low autocorrelation.
+
+The results from the LUNIF, LUNIF model:
+<<>>=
+print(s)
+@
+
+The results from the LUNIF, LN model:
+<<>>=
+print(s2)
+@
+
+\begin{figure}[h!]
+\includegraphics[height=.4\textheight]{lunif}
+\includegraphics[height=.4\textheight]{lnorm}
+\caption{80\% credible bands for distribution of failure times and point estimate for the same. The top figure is the diffuse prior and the bottom figure is somewhat informative for $\beta$. The informative prior controls how fast the uncertainty increases when extrapolating.}
+\end{figure}
+
+\item[9.15]
+\end{enumerate}
+
+\end{document}
